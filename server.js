@@ -48,16 +48,16 @@ app.use('/api/rendezvous' , rendezvousRoutes)
 app.use('/api/prescription' , prescriptionRoutes )
 app.use('/api/patient' , patientsRoutes)
 // serve frontend
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, './client/build')))
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, './client/build')))
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './', 'client', 'build', 'index.html'))
-  })
-} else {
-  app.get('/', (req, res) => {
-    res.send("Please set to production")
-  })
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, './', 'client', 'build', 'index.html'))
+//   })
+// } else {
+//   app.get('/', (req, res) => {
+//     res.send("Please set to production")
+//   })
 }
 
 app.listen(port, () => console.log("The server is running on port : ", port))
